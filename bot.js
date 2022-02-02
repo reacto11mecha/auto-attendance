@@ -3,9 +3,7 @@ const pptr = require("puppeteer");
 const loginWrapper = require("./src/login");
 
 (async () => {
-  const browser = await pptr.launch({
-    headless: false,
-  });
+  const browser = await pptr.launch();
   const page = await browser.newPage();
 
   const login = loginWrapper(page);
