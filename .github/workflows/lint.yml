@@ -1,0 +1,52 @@
+name: ES Lint
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  push:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Check if the file passed the linting
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup NodeJS 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ env.cache-name }}-
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+      - name: Install Node Dependencies
+        run: npm install
+        env:
+          CI: TRUE
+
+      - name: Test Code Linting
+        run: npm run lint
+
+      - name: Save Code Linting Report JSON
+        run: npm run lint:report
+        continue-on-error: true
+
+      - name: Annotate Code Linting Results
+        uses: ataylorme/eslint-annotate-action@1.2.0
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          report-json: "eslint_report.json"
+          fail-on-warning: true
+
+      - name: Upload ESLint report
+        uses: actions/upload-artifact@v2
+        with:
+          name: eslint_report.json
+          path: eslint_report.json
