@@ -2,6 +2,7 @@ const pptr = require("puppeteer");
 
 const loginWrapper = require("./src/login");
 const _chalkFN = require("./utils/chalk");
+const { hook, embedSuccess } = require("./utils/discord");
 
 (async () => {
   const chalk = await _chalkFN();
@@ -20,6 +21,8 @@ const _chalkFN = require("./utils/chalk");
   infoFN("Berhasil membuka website, memulai proses login");
   await login();
   infoFN("Terkonfirmasi berhasil login!");
+
+  hook.send(embedSuccess);
 
   await browser.close();
 })();
