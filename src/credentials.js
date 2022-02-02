@@ -1,5 +1,7 @@
 require("dotenv").config();
 
+const WEBSITE_URL = process.env.WEBSITE_URL;
+
 const USERNAME = process.env.USERNAME;
 const PASSWORD = process.env.PASSWORD;
 const WEBHOOK_URL = process.env.WEBHOOK_URL;
@@ -13,10 +15,13 @@ const SUCCESS_INDICATOR_ELEMENTS = process.env.SUCCESS_INDICATOR_ELEMENTS.split(
   ","
 ).map((el) => el.trim()) || ["body"];
 
-if (!USERNAME || !PASSWORD || !WEBHOOK_URL)
-  throw new Error("Seluruh environment variable dibutuhkan!");
+if (!USERNAME || !PASSWORD || !WEBHOOK_URL || !WEBSITE_URL)
+  throw new Error("Isi environment variable yang wajib!");
 
 module.exports = {
+  // Website URL
+  WEBSITE_URL,
+
   // Authentication
   USERNAME,
   PASSWORD,

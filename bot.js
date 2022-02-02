@@ -1,5 +1,6 @@
 const pptr = require("puppeteer");
 
+const { WEBSITE_URL } = require("./src/credentials");
 const loginWrapper = require("./src/login");
 const _chalkFN = require("./utils/chalk");
 const { hook, embedSuccess } = require("./utils/discord");
@@ -13,8 +14,8 @@ const { hook, embedSuccess } = require("./utils/discord");
 
   const login = loginWrapper(page, infoFN);
 
-  infoFN("Membuka website");
-  await page.goto("https://demo3.e-belajar.id/login", {
+  infoFN(`Membuka website => ${WEBSITE_URL}`);
+  await page.goto(WEBSITE_URL, {
     timeout: 0,
   });
 
