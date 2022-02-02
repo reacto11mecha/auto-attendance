@@ -4,7 +4,8 @@
   "description": "Bot absen otomatis dengan menggunakan puppeteer",
   "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot",
+    "lint": "eslint .",
     "prepare": "husky install"
   },
   "repository": {
