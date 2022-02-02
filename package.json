@@ -1,0 +1,27 @@
+{
+  "name": "auto-attendance",
+  "version": "1.0.0",
+  "description": "Bot absen otomatis dengan menggunakan puppeteer",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reacto11mecha/auto-attendance.git"
+  },
+  "keywords": [
+    "attendance",
+    "automation"
+  ],
+  "author": "Ezra Khairan Permana",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reacto11mecha/auto-attendance/issues"
+  },
+  "homepage": "https://github.com/reacto11mecha/auto-attendance#readme",
+  "dependencies": {
+    "dotenv": "^15.0.0",
+    "puppeteer": "^13.1.3"
+  }
+}
