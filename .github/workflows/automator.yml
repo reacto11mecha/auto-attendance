@@ -37,6 +37,8 @@ jobs:
       - name: Waktunya absen
         run: npm start
         env:
+          SUCCESS_INDICATOR_ELEMENTS: ${{ secrets.SUCCESS_INDICATOR_ELEMENTS }}
+
           # Required Field
           WEBSITE_URL: ${{ secrets.WEBSITE_URL }}
           USERNAME: ${{ secrets.USERNAME }}
@@ -48,4 +50,3 @@ jobs:
           # INPUT_USERNAME: ${{ secrets.INPUT_USERNAME }}
           # INPUT_PASSWORD: ${{ secrets.INPUT_PASSWORD }}
           # BUTTON_SUBMIT: ${{ secrets.BUTTON_SUBMIT }}
-          SUCCESS_INDICATOR_ELEMENTS: ${{ secrets.SUCCESS_INDICATOR_ELEMENTS }}
