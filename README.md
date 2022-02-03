@@ -1,6 +1,6 @@
 # Auto Attendance
 
-Bot absen otomatis dengan menggunakan puppeteer.
+Sesuai nama repositorinya, ini adalah bot absen otomatis dengan menggunakan puppeteer.
 
 ### Latar belakang bot ini dibuat
 
@@ -52,6 +52,12 @@ Konfigurasi lain yang dapat diberikan ke bot ini.
 - `INPUT_PASSWORD`: HTML Element yang dijadikan kotak password formnya, default element `'input[type="password"]'`
 - `BUTTON_SUBMIT`: HTML Element yang dijadikan tombol submit formnya, default element `'button[type="submit"]'`
 - `SUCCESS_INDICATOR_ELEMENTS`: HTML Element yang dicari setelah login untuk menandakan apakah sudah berhasil login atau belum. Jika element lebih dari satu pisahkan dengan koma (`,`), jika hanya satu isikan dengan element biasa saja. Default value hanya elemen `body`.
+
+Selanjutnya adalah penyesuaian github action, nama filenya adalah `automator.yml` dengan path lengkapnya `.github/workflows/automator.yml`. Jangan diubah-ubah environment variable, ubah saja bagian yang optional.
+
+![Bagian yang dimaksud](assets/img/Bagian_Yang_Dimaksud.png)
+
+> Jika kamu tidak ada `WEBHOOK_URL` ataupun `FORM_WRAPPER`, maka komentari saja baris tersebut, karena saya sendiri menggunakan 2 variabel itu.
 
 ### Catatan
 
