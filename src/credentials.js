@@ -4,7 +4,7 @@ const WEBSITE_URL = process.env.WEBSITE_URL;
 
 const USERNAME = process.env.USERNAME;
 const PASSWORD = process.env.PASSWORD;
-const WEBHOOK_URL = process.env.WEBHOOK_URL;
+const WEBHOOK_URL = process.env.WEBHOOK_URL || null;
 
 const FORM_WRAPPER = process.env.FORM_WRAPPER || "body";
 const INPUT_USERNAME = process.env.INPUT_USERNAME || 'input[type="text"]';
@@ -15,7 +15,7 @@ const SUCCESS_INDICATOR_ELEMENTS = process.env.SUCCESS_INDICATOR_ELEMENTS.split(
   ","
 ).map((el) => el.trim()) || ["body"];
 
-if (!USERNAME || !PASSWORD || !WEBHOOK_URL || !WEBSITE_URL)
+if (!USERNAME || !PASSWORD || !WEBSITE_URL)
   throw new Error("Isi environment variable yang wajib!");
 
 module.exports = {

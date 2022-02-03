@@ -1,9 +1,8 @@
 const pptr = require("puppeteer");
 
-const { WEBSITE_URL } = require("./src/credentials");
+const { WEBSITE_URL, WEBHOOK_URL } = require("./src/credentials");
 const loginWrapper = require("./src/login");
 const _chalkFN = require("./utils/chalk");
-const { hook, embedSuccess } = require("./utils/discord");
 
 (async () => {
   const chalk = await _chalkFN();
@@ -23,7 +22,10 @@ const { hook, embedSuccess } = require("./utils/discord");
   await login();
   infoFN("Terkonfirmasi berhasil login!");
 
-  hook.send(embedSuccess);
+  if (WEBHOOK_URL) {
+    const { hook, embedSuccess } = require("./utils/discord");
+    hook.send(embedSuccess);
+  }
 
   await browser.close();
 })();
