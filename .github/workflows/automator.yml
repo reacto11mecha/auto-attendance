@@ -3,8 +3,10 @@ name: Menjalankan bot absensi otomatis
 on:
   schedule:
     # Menjalankan cron job setiap pukul 6.40 pagi
-    # Dari hari Senin sampai Jum'at
-    - cron: "40 6 * * 1-5"
+    # Dari hari Senin sampai Jum'at, Disini di set
+    # 23:40 karena zona waktu yang dipakai github action
+    # adalah zona waktu UTC, tambahkan sesuai zona waktumu
+    - cron: "40 23 * * 1-5"
   workflow_dispatch:
 
 jobs:
