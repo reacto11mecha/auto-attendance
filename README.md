@@ -53,6 +53,8 @@ Konfigurasi lain yang dapat diberikan ke bot ini.
 - `BUTTON_SUBMIT`: HTML Element yang dijadikan tombol submit formnya, default element `'button[type="submit"]'`
 - `SUCCESS_INDICATOR_ELEMENTS`: HTML Element yang dicari setelah login untuk menandakan apakah sudah berhasil login atau belum. Jika element lebih dari satu pisahkan dengan koma (`,`), jika hanya satu isikan dengan element biasa saja. Default value hanya elemen `body`.
 
+> Atau versi lebih simple ada di [.sample.env](.sample.env)
+
 Selanjutnya adalah penyesuaian github action, nama filenya adalah `automator.yml` dengan path lengkapnya `.github/workflows/automator.yml`. Jangan diubah-ubah environment variable, ubah saja bagian yang optional.
 
 ![Bagian yang dimaksud](assets/img/Bagian_Yang_Dimaksud.png)
@@ -63,8 +65,30 @@ Selanjutnya adalah penyesuaian github action, nama filenya adalah `automator.yml
 
 Bot ini hanya bisa digunakan apabila website belajar yang digunakan tidak terdapat bot detection atau website belajar yang absennya menggunakan metode login pada jam tertentu, jika yang dimaksud adalah mengisi suatu form absen semisal halnya google form yang digunakan untuk absen, bot ini bukanlah hal yang tepat.
 
-Penegasan, **saya tidak bertanggung jawab atas hal-hal yang tidak anda inginkan, gunakan dengan bijak dan tepat!** Terima kasih.
-
 ### Local Development
 
-// TODO: Penjelasan bagaimana mendevelop aplikasi secara local
+Langkah pertama, fork atau clone terlebih dahulu.
+
+```sh
+# https
+git clone https://github.com/reacto11mecha/auto-attendance.git
+
+# SSH
+git clone git@github.com:reacto11mecha/auto-attendance.git
+```
+
+Kedua, menginstall seluruh package yang dibutuhkan.
+
+```sh
+npm install
+```
+
+Ketiga, menyalin file `.sample.env` menjadi `.env` dan isikan sesuai field yang telah dijelaskan sebelumnya di [Cara Pemakaian](#cara-pemakaian).
+
+### Disclaimer
+
+Penegasan, **saya tidak bertanggung jawab atas hal-hal yang tidak anda inginkan, gunakan dengan bijak dan tepat!**
+
+### Lisensi
+
+Semua kode yang ada di repositori ini bernaung dibawah [MIT License](LICENSE).
