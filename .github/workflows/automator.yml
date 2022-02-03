@@ -2,7 +2,7 @@ name: Menjalankan bot absensi otomatis
 
 on:
   schedule:
-    # Menjalankan cron job setiap pukul 6.40 pagi
+    # Menjalankan cron job setiap pukul 6.40 pagi WIB
     # Dari hari Senin sampai Jum'at, Disini di set
     # 23:40 karena zona waktu yang dipakai github action
     # adalah zona waktu UTC, tambahkan sesuai zona waktumu
@@ -41,9 +41,9 @@ jobs:
           WEBSITE_URL: ${{ secrets.WEBSITE_URL }}
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
 
           # Optional Field, uncomment if needed
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
           FORM_WRAPPER: ${{ secrets.FORM_WRAPPER }}
           # INPUT_USERNAME: ${{ secrets.INPUT_USERNAME }}
           # INPUT_PASSWORD: ${{ secrets.INPUT_PASSWORD }}
