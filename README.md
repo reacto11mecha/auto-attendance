@@ -8,11 +8,21 @@ Saya adalah siswa sekolah yang mengikuti proses belajar mengajar secara daring m
 
 ### Cara Kerja Bot
 
-// TODO: Penjelasan tentang cara kerja bot ini
+Bot ini sangat dibantu oleh library [puppeteer](https://github.com/puppeteer/puppeteer) sebagai Headless Chrome yang bisa mengunjungi web dan melakukan sesuatu di web tersebut layaknya manusia berinteraksi dengan web. Yang pertama kali dilakukan oleh botntya yaitu mengunjungi webnya.
 
-### Prerequisites
+![Membuka Website](assets/img/Membuka_Website.png)
 
-// TODO: Penjelasan Prerequisites
+Ketika webnya sudah selesai di kunjungi, bot akan mencari elemen-elemen yang bisa digunakan untuk mengetikan username/email dan password.
+
+![Deteksi Elemen-Elemen HTML](assets/img/Elements_Recognize.png)
+
+Ketika elemen-elemen yang dimaksud sudah sesuai maka selanjutnya adalah proses pengisiian username dan password, serta di kliknya tombol login.
+
+![Isi Username Password dan login](assets/img/Isi_Username_dan_Password.png)
+
+Ketika tombol login sudah diklik dan sudah dipastikan web berpindah halaman, selanjutnya akan mendeteksi elemen baru apakah berhasil login ke halaman setelah login dengan mendeteksi beberapa elemen yang ada.
+
+![Second Recognize](assets/img/Second_Recognize.png)
 
 ### Cara Pemakaian
 
