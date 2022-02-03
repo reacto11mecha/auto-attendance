@@ -30,7 +30,34 @@ Dan ketika ditemukan URL Discord Webhook, bot nya akan mengirimkan laporan ke di
 
 ### Cara Pemakaian
 
-// TODO: Penjelasan bagaimana cara pemakaiannya
+Pertama gunakan repo template ini untuk membuat repo baru, bisa menggunakan tombol `Use this template` atau sedang fokus membaca, [generate disini](https://github.com/reacto11mecha/auto-attendance/generate). Di step ini buatlah repo github seperti biasa. Kira-kira tampilannya akan terlihat seperti ini.
+
+![Generate from Template](assets/img/Generate_from_template.png)
+
+Selanjutnya buatlah secrets github action ke halaman `settings`, scroll ke bawah sampai ke bagian `Secrets`, klik bagian `Actions`.
+
+![Generate from Template](assets/img/Secrets_Actions.png)
+
+Buatlah secret baru untuk memberikan data-data diperlukan untuk menjalankan botnya. Berikut ini list yang wajib ada dalam menggunakan bot ini.
+
+- `WEBSITE_URL`: Url lengkap dimana halaman loginnya
+- `USERNAME`: Username/email dari akun yang dipakai untuk absensi
+- `PASSWORD`: Password dari akun yang dipakai untuk absensi
+
+Konfigurasi lain yang dapat diberikan ke bot ini.
+
+- `WEBHOOK_URL`: Discord Webhook url, tidak wajib sifatnya tapi bisa ditambahkan jika ada dan akan mengirimkan notifikasi jika berhasil
+- `FORM_WRAPPER`: HTML Element patokan untuk kotak terluar formnya, default element `body`
+- `INPUT_USERNAME`: HTML Element yang dijadikan kotak username/email formnya, default element `'input[type="text"]'`
+- `INPUT_PASSWORD`: HTML Element yang dijadikan kotak password formnya, default element `'input[type="password"]'`
+- `BUTTON_SUBMIT`: HTML Element yang dijadikan tombol submit formnya, default element `'button[type="submit"]'`
+- `SUCCESS_INDICATOR_ELEMENTS`: HTML Element yang dicari setelah login untuk menandakan apakah sudah berhasil login atau belum. Jika element lebih dari satu pisahkan dengan koma (`,`), jika hanya satu isikan dengan element biasa saja. Default value hanya elemen `body`.
+
+### Catatan
+
+Bot ini hanya bisa digunakan apabila website belajar yang digunakan tidak terdapat bot detection atau website belajar yang absennya menggunakan metode login pada jam tertentu, jika yang dimaksud adalah mengisi suatu form absen semisal halnya google form yang digunakan untuk absen, bot ini bukanlah hal yang tepat.
+
+Penegasan, **saya tidak bertanggung jawab atas hal-hal yang tidak anda inginkan, gunakan dengan bijak dan tepat!** Terima kasih.
 
 ### Local Development
 
