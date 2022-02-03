@@ -24,6 +24,10 @@ Ketika tombol login sudah diklik dan sudah dipastikan web berpindah halaman, sel
 
 ![Second Recognize](assets/img/Second_Recognize.png)
 
+Dan ketika ditemukan URL Discord Webhook, bot nya akan mengirimkan laporan ke discord bahwa proses absensi berhasil.
+
+![Screenshot Discord](assets/img/Screenshot_Discord.jpg)
+
 ### Cara Pemakaian
 
 // TODO: Penjelasan bagaimana cara pemakaiannya
