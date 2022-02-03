@@ -11,9 +11,11 @@ const INPUT_USERNAME = process.env.INPUT_USERNAME || 'input[type="text"]';
 const INPUT_PASSWORD = process.env.INPUT_PASSWORD || 'input[type="password"]';
 const BUTTON_SUBMIT = process.env.BUTTON_SUBMIT || 'button[type="submit"]';
 
-const SUCCESS_INDICATOR_ELEMENTS = process.env.SUCCESS_INDICATOR_ELEMENTS.split(
-  ","
-).map((el) => el.trim()) || ["body"];
+const indicator = SUCCESS_INDICATOR_ELEMENTS;
+
+const SUCCESS_INDICATOR_ELEMENTS = indicator.includes(",")
+  ? indicator.split(",").map((el) => el.trim())
+  : [indicator.trim()] || ["body"];
 
 if (!USERNAME || !PASSWORD || !WEBSITE_URL)
   throw new Error("Isi environment variable yang wajib!");
