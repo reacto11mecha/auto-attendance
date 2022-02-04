@@ -5,7 +5,7 @@ const { discord, credentials } = require("../src/utils");
   const bot = await _botBuilder();
   const login = await _login(bot.page, bot.chalk);
 
-  bot.chalk("Terkonfirmasi berhasil login!");
+  bot.chalk.infoFN("Terkonfirmasi berhasil login!");
 
   if (credentials.WEBHOOK_URL) discord.successLogin(login);
 
