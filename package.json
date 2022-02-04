@@ -4,6 +4,7 @@
   "description": "Bot absen otomatis dengan menggunakan puppeteer",
   "scripts": {
     "login": "node functions/login",
+    "logout": "node functions/logout",
     "lint": "eslint .",
     "lint:report": "eslint --output-file eslint_report.json --format json .",
     "prepare": "husky install"
