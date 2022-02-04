@@ -2,9 +2,8 @@
   "name": "auto-attendance",
   "version": "1.0.0",
   "description": "Bot absen otomatis dengan menggunakan puppeteer",
-  "main": "bot.js",
   "scripts": {
-    "start": "node bot",
+    "login": "node functions/login",
     "lint": "eslint .",
     "lint:report": "eslint --output-file eslint_report.json --format json .",
     "prepare": "husky install"
