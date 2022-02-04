@@ -8,6 +8,8 @@ Saya adalah siswa sekolah yang mengikuti proses belajar mengajar secara daring m
 
 ### Cara Kerja Bot
 
+##### Pada Saat Login
+
 Bot ini sangat dibantu oleh library [puppeteer](https://github.com/puppeteer/puppeteer) sebagai Headless Chrome yang bisa mengunjungi web dan melakukan sesuatu di web tersebut layaknya manusia berinteraksi dengan web. Yang pertama kali dilakukan oleh botntya yaitu mengunjungi webnya.
 
 ![Membuka Website](assets/img/Membuka_Website.png)
@@ -27,6 +29,18 @@ Ketika tombol login sudah diklik dan sudah dipastikan web berpindah halaman, sel
 Dan ketika ditemukan URL Discord Webhook, bot nya akan mengirimkan laporan ke discord bahwa proses absensi berhasil.
 
 ![Screenshot Discord](assets/img/Screenshot_Discord.jpg)
+
+---
+
+##### Pada Saat Logout
+
+Pada saat logout, yang dilakukan bot ini adalah kembali melakukan proses login dengan prosedur yang sama. Setelah dinyatakan berhasil login, selanjutnya bot mendeteksi apakah ada elemen profil pengguna dan memencetnya jika ada.
+
+![Profile Box](assets/img/Box_Profil.png)
+
+Ketika sudah dipencet, selanjutnya akan mencari tombol logout dan akan memencetnya.
+
+![Profile Box](assets/img/Logout_Btn.png)
 
 ### Cara Pemakaian
 
