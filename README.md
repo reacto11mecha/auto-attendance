@@ -4,7 +4,7 @@ Sesuai nama repositorinya, ini adalah bot absen otomatis dengan menggunakan pupp
 
 ### Latar belakang bot ini dibuat
 
-Saya adalah siswa sekolah yang mengikuti proses belajar mengajar secara daring melalui website LMS (Learning Management System). Website itu dalam melaksanakan absensi cukup menyulitkan, sebagai siswa setiap mau absen harus logout dan login kembali agar bisa dianggap sudah absen. Jadi cukup membuang waktu hanya untuk melakukan hal itu berkali-kali untuk absen saja.
+Saya adalah siswa sekolah yang mengikuti proses belajar mengajar secara daring melalui website LMS (Learning Management System). Website itu dalam melaksanakan absensi cukup menyulitkan, sebagai siswa setiap mau absen harus logout dan login kembali agar bisa dianggap sudah absen. Jadi cukup membuang waktu hanya untuk melakukan hal itu berkali-kali untuk absen saja. Hal yang sama juga diterapkan untuk absen keluar, kita diperlukan logout untuk dinyatakan sebagai absen keluar.
 
 ### Cara Kerja Bot
 
@@ -41,6 +41,14 @@ Pada saat logout, yang dilakukan bot ini adalah kembali melakukan proses login d
 Ketika sudah dipencet, selanjutnya akan mencari tombol logout dan akan memencetnya.
 
 ![Profile Box](assets/img/Logout_Btn.png)
+
+Kemudian mendeteksi apakah ada tombol konfirmasi keluar, jika ada bot akan menunggu 1,5 detik dan memencetnya. Ini menghindari jika kemunculan tombol konfirmasi logout memiliki animasi.
+
+![Logout Button Confirmation](assets/img/Logout_Btn_Confirm.png)
+
+Ketika tombol berhasil ditekan maka akan kembali ke halaman login dan mendeteksi kembali elemen-elemen yang ada di halaman login.
+
+![Deteksi Elemen-Elemen HTML](assets/img/Elements_Recognize.png)
 
 ### Cara Pemakaian
 
