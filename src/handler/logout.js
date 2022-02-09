@@ -11,6 +11,8 @@ const {
   },
 } = require("../utils");
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 module.exports = async (page, chalk) => {
   chalk.infoFN("Mencari box logout");
   await page.waitForSelector(LOGOUT_BOX);
@@ -28,6 +30,7 @@ module.exports = async (page, chalk) => {
     "Berhasil menekan tombol logout, mengecek apakah dialog konfirmasi logout muncul"
   );
   await page.waitForSelector(CONFIRM_LOGOUT_BUTTON);
+  await sleep(1500);
 
   chalk.infoFN(
     "Tombol konfirmasi logout ditemukan, memencet tombol komfirmasi logout"
