@@ -6,7 +6,7 @@ on:
     # Dari hari Senin sampai Jum'at, Disini di set
     # 23:40 karena zona waktu yang dipakai github action
     # adalah zona waktu UTC, tambahkan sesuai zona waktumu
-    - cron: "40 23 * * 1-5"
+    - cron: "40 23 * * 0-4"
   workflow_dispatch:
 
 jobs:
