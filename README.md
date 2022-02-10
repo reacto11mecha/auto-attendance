@@ -4,9 +4,11 @@ Sesuai nama repositorinya, ini adalah bot absen otomatis dengan menggunakan pupp
 
 ### Latar belakang bot ini dibuat
 
-Saya adalah siswa sekolah yang mengikuti proses belajar mengajar secara daring melalui website LMS (Learning Management System). Website itu dalam melaksanakan absensi cukup menyulitkan, sebagai siswa setiap mau absen harus logout dan login kembali agar bisa dianggap sudah absen. Jadi cukup membuang waktu hanya untuk melakukan hal itu berkali-kali untuk absen saja.
+Saya adalah siswa sekolah yang mengikuti proses belajar mengajar secara daring melalui website LMS (Learning Management System). Website itu dalam melaksanakan absensi cukup menyulitkan, sebagai siswa setiap mau absen harus logout dan login kembali agar bisa dianggap sudah absen. Jadi cukup membuang waktu hanya untuk melakukan hal itu berkali-kali untuk absen saja. Hal yang sama juga diterapkan untuk absen keluar, kita diperlukan logout untuk dinyatakan sebagai absen keluar.
 
 ### Cara Kerja Bot
+
+##### Pada Saat Login
 
 Bot ini sangat dibantu oleh library [puppeteer](https://github.com/puppeteer/puppeteer) sebagai Headless Chrome yang bisa mengunjungi web dan melakukan sesuatu di web tersebut layaknya manusia berinteraksi dengan web. Yang pertama kali dilakukan oleh botntya yaitu mengunjungi webnya.
 
@@ -28,6 +30,30 @@ Dan ketika ditemukan URL Discord Webhook, bot nya akan mengirimkan laporan ke di
 
 ![Screenshot Discord](assets/img/Screenshot_Discord.jpg)
 
+---
+
+##### Pada Saat Logout
+
+Pada saat logout, yang dilakukan bot ini adalah kembali melakukan proses login dengan prosedur yang sama. Setelah dinyatakan berhasil login, selanjutnya bot mendeteksi apakah ada elemen profil pengguna dan memencetnya jika ada.
+
+![Profile Box](assets/img/Box_Profil.png)
+
+Ketika sudah dipencet, selanjutnya akan mencari tombol logout dan akan memencetnya.
+
+![Profile Box](assets/img/Logout_Btn.png)
+
+Kemudian mendeteksi apakah ada tombol konfirmasi keluar, jika ada bot akan menunggu 1,5 detik dan memencetnya. Ini menghindari jika kemunculan tombol konfirmasi logout memiliki animasi.
+
+![Logout Button Confirmation](assets/img/Logout_Btn_Confirm.png)
+
+Ketika tombol berhasil ditekan maka akan kembali ke halaman login dan mendeteksi kembali elemen-elemen yang ada di halaman login.
+
+![Deteksi Elemen-Elemen HTML](assets/img/Elements_Recognize.png)
+
+Dan ketika ditemukan URL Discord Webhook, bot nya akan mengirimkan laporan ke discord bahwa proses absensi keluar berhasil.
+
+![Screenshot Discord Logout](assets/img/Screenshot_Discord_Logout.jpg)
+
 ### Cara Pemakaian
 
 Pertama gunakan repo template ini untuk membuat repo baru, bisa menggunakan tombol `Use this template` atau sedang fokus membaca, [generate disini](https://github.com/reacto11mecha/auto-attendance/generate). Di step ini buatlah repo github seperti biasa. Kira-kira tampilannya akan terlihat seperti ini.
@@ -43,6 +69,9 @@ Buatlah secret baru untuk memberikan data-data diperlukan untuk menjalankan botn
 - `WEBSITE_URL`: Url lengkap dimana halaman loginnya
 - `USERNAME`: Username/email dari akun yang dipakai untuk absensi
 - `PASSWORD`: Password dari akun yang dipakai untuk absensi
+- `LOGOUT_BOX`: HTML Element yang dijadikan tombol profile yang nantinya berisikan tombol logout
+- `LOGOUT_BUTTON`: HTML Element yang dijadikan tombol logout
+- `CONFIRM_LOGOUT_BUTTON`: HTML Element yang dijadikan tombol konfirmasi logout
 
 Konfigurasi lain yang dapat diberikan ke bot ini.
 
@@ -55,7 +84,21 @@ Konfigurasi lain yang dapat diberikan ke bot ini.
 
 > Atau versi lebih simple ada di [.sample.env](.sample.env)
 
-Selanjutnya adalah penyesuaian github action, nama filenya adalah `automator.yml` dengan path lengkapnya `.github/workflows/automator.yml`. Jangan diubah-ubah environment variable, ubah saja bagian yang optional.
+<!-- Selanjutnya adalah penyesuaian github action, nama filenya adalah `automator.yml` dengan path lengkapnya `.github/workflows/automator.yml`. Jangan diubah-ubah environment variable, ubah saja bagian yang optional. -->
+
+Selanjutnya adalah penyesuaian github action, karena terdapat dua fungsi yang melakukan hal yang berbeda, jadi sesuai ada dua file yang digunakan sebagai github action yaitu file `login.yml` dan `logout.yml`.
+
+Jika ingin mengubah kedua file tersebut ada dua hal yang bisa diubah, yaitu bagian **schedule cron job** dan **environment variable**. Berikut adalah penjelasannya.
+
+1. Schedule cron job
+
+Schedule cron job bisa diatur sesuka hati dengan catatan, waktu yang digunakan oleh github adalah waktu UTC jadi pastikan kembali apakah zona waktu dan jam sudah sesuai dengan apa yang diharapkan sebelumnya.
+
+Default waktu login adalah `06:40 Waktu Indonesia Barat` dan logout `13:00 Waktu Indonesia Barat`. Github action berjalan dari hari Senin sampai hari Jum'at.
+
+2. Environment variable
+
+Jika scroll kedua action tersebut sampai ke bawah, maka akan ditemukan keduanya memiliki kesamaaan yaitu memiliki environment variable yang wajib dan opsional. Hanya edit bagian opsional, jika bagian yang wajib dihapus maka bot tidak akan berjalan sebagaimana mestinya.
 
 ![Bagian yang dimaksud](assets/img/Bagian_Yang_Dimaksud.png)
 

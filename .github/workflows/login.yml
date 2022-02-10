@@ -1,12 +1,13 @@
-name: Menjalankan bot absensi otomatis
+name: Menjalankan bot absensi masuk otomatis
 
 on:
   schedule:
     # Menjalankan cron job setiap pukul 6.40 pagi WIB
     # Dari hari Senin sampai Jum'at, Disini di set
     # 23:40 karena zona waktu yang dipakai github action
-    # adalah zona waktu UTC, tambahkan sesuai zona waktumu
-    - cron: "40 23 * * 1-5"
+    # adalah zona waktu UTC, atur sesuai jam yang diinginkan
+    # dan sesuai dengan zona waktumu
+    - cron: "40 23 * * 0-4"
   workflow_dispatch:
 
 jobs:
@@ -34,8 +35,8 @@ jobs:
       - name: Install Node Dependencies
         run: npm install
 
-      - name: Waktunya absen
-        run: npm start
+      - name: Waktunya absen masuk
+        run: npm run login
         env:
           SUCCESS_INDICATOR_ELEMENTS: ${{ secrets.SUCCESS_INDICATOR_ELEMENTS }}
 

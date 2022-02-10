@@ -17,6 +17,10 @@ const SUCCESS_INDICATOR_ELEMENTS = indicator.includes(",")
   ? indicator.split(",").map((el) => el.trim())
   : [indicator.trim()] || ["body"];
 
+const LOGOUT_BOX = process.env.LOGOUT_BOX;
+const LOGOUT_BUTTON = process.env.LOGOUT_BUTTON;
+const CONFIRM_LOGOUT_BUTTON = process.env.CONFIRM_LOGOUT_BUTTON;
+
 if (!USERNAME || !PASSWORD || !WEBSITE_URL)
   throw new Error("Isi environment variable yang wajib!");
 
@@ -39,4 +43,9 @@ module.exports = {
 
   // Success Indicator
   SUCCESS_INDICATOR_ELEMENTS,
+
+  // Logout Dialogue
+  LOGOUT_BOX,
+  LOGOUT_BUTTON,
+  CONFIRM_LOGOUT_BUTTON,
 };
