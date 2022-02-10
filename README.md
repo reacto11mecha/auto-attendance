@@ -69,6 +69,9 @@ Buatlah secret baru untuk memberikan data-data diperlukan untuk menjalankan botn
 - `WEBSITE_URL`: Url lengkap dimana halaman loginnya
 - `USERNAME`: Username/email dari akun yang dipakai untuk absensi
 - `PASSWORD`: Password dari akun yang dipakai untuk absensi
+- `LOGOUT_BOX`: HTML Element yang dijadikan tombol profile yang nantinya berisikan tombol logout
+- `LOGOUT_BUTTON`: HTML Element yang dijadikan tombol logout
+- `CONFIRM_LOGOUT_BUTTON`: HTML Element yang dijadikan tombol konfirmasi logout
 
 Konfigurasi lain yang dapat diberikan ke bot ini.
 
@@ -81,7 +84,21 @@ Konfigurasi lain yang dapat diberikan ke bot ini.
 
 > Atau versi lebih simple ada di [.sample.env](.sample.env)
 
-Selanjutnya adalah penyesuaian github action, nama filenya adalah `automator.yml` dengan path lengkapnya `.github/workflows/automator.yml`. Jangan diubah-ubah environment variable, ubah saja bagian yang optional.
+<!-- Selanjutnya adalah penyesuaian github action, nama filenya adalah `automator.yml` dengan path lengkapnya `.github/workflows/automator.yml`. Jangan diubah-ubah environment variable, ubah saja bagian yang optional. -->
+
+Selanjutnya adalah penyesuaian github action, karena terdapat dua fungsi yang melakukan hal yang berbeda, jadi sesuai ada dua file yang digunakan sebagai github action yaitu file `login.yml` dan `logout.yml`.
+
+Jika ingin mengubah kedua file tersebut ada dua hal yang bisa diubah, yaitu bagian **schedule cron job** dan **environment variable**. Berikut adalah penjelasannya.
+
+1. Schedule cron job
+
+Schedule cron job bisa diatur sesuka hati dengan catatan, waktu yang digunakan oleh github adalah waktu UTC jadi pastikan kembali apakah zona waktu dan jam sudah sesuai dengan apa yang diharapkan sebelumnya.
+
+Default waktu login adalah `06:40 Waktu Indonesia Barat` dan logout `13:00 Waktu Indonesia Barat`. Github action berjalan dari hari Senin sampai hari Jum'at.
+
+2. Environment variable
+
+Jika scroll kedua action tersebut sampai ke bawah, maka akan ditemukan keduanya memiliki kesamaaan yaitu memiliki environment variable yang wajib dan opsional. Hanya edit bagian opsional, jika bagian yang wajib dihapus maka bot tidak akan berjalan sebagaimana mestinya.
 
 ![Bagian yang dimaksud](assets/img/Bagian_Yang_Dimaksud.png)
 
