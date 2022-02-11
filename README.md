@@ -54,6 +54,12 @@ Dan ketika ditemukan URL Discord Webhook, bot nya akan mengirimkan laporan ke di
 
 ![Screenshot Discord Logout](assets/img/Screenshot_Discord_Logout.jpg)
 
+##### Hasil Kerja Bot
+
+Jadi ini dashboard absensi saya, di absen oleh bot ini.
+
+![Screenshot Dashboard LMS](assets/img/Screenshot_Dashboard.jpg)
+
 ### Cara Pemakaian
 
 Pertama gunakan repo template ini untuk membuat repo baru, bisa menggunakan tombol `Use this template` atau sedang fokus membaca, [generate disini](https://github.com/reacto11mecha/auto-attendance/generate). Di step ini buatlah repo github seperti biasa. Kira-kira tampilannya akan terlihat seperti ini.
