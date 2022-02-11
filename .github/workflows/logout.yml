@@ -1,4 +1,4 @@
-name: Menjalankan bot absensi masuk otomatis
+name: Menjalankan bot absensi keluar otomatis
 
 on:
   schedule:
